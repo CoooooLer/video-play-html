@@ -6,7 +6,7 @@
           <div class="content">
             <div class="content_top">
               <div class="back-links">
-                <a href="index.html">首页</a> &gt;&gt;&gt;&gt; <a href="#" class="active">注册</a>
+                <router-link to="forgetPassword">找回密码</router-link> &gt;&gt;&gt;&gt; <router-link to="login">登录</router-link>
               </div>
               <div class="clear"></div>
             </div>
@@ -36,7 +36,7 @@
                       <span><input name="" @blur="verifyPhone" ref="phone" type="text" class="textbox" ></span>
                     </div>
                     <div>
-                      <span><input type="button" value="Submit"  class="mybutton"></span>
+                      <span><input type="button" value="注册"  class="mybutton"></span>
                     </div>
                   </form>
                 </div>

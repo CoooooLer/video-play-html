@@ -19,6 +19,7 @@
               <ul>
                 <li><router-link to="/login">登录</router-link></li>
                 <li><router-link to="/register">注册</router-link></li>
+                <li><router-link to="/history"><img src="../../public/static/images/time.png" alt="" style="vertical-align: sub;height: 0.9rem;"></router-link></li>
               </ul>
             </div>
             <div class="clear"></div>
@@ -27,7 +28,7 @@
         <div class="wrap">
           <div class="header_top">
             <div class="logo">
-              <a href="index.html"><img src="../../public/static/images/logo.png" alt="" /></a>
+              <router-link to="/"><img src="../../public/static/images/logo.png" alt="" /></router-link>
             </div>
             <div class="header_top_right">
               <div class="search_box">
@@ -37,7 +38,6 @@
               </div>
               <div class="clear"></div>
             </div>
-
             <div class="clear"></div>
           </div>
         </div>

@@ -37,46 +37,48 @@
     <div class="main">
       <div class="wrap">
         <div class="content">
-          <div class="content_top">
-            <div class="heading">
-              <h3>New Products</h3>
-            </div>
-          </div>
-          <div class="section group">
-            <div class="grid_1_of_5 images_1_of_5" v-for="(item, index) in newList" :key="index">
-              <router-link :to=item.path><img :src=item.img alt="" /></router-link>
-              <h2><router-link :to=item.path>{{ item.title }}</router-link></h2>
-              <div class="price-details">
-                <div class="price-number">
-                  <p><span class="rupees">${{ item.price }}</span></p>
-                </div>
-                <div class="add-cart">
-                  <h4><a href="preview.html">Add to Cart</a></h4>
-                </div>
-                <div class="clear"></div>
-              </div>
-            </div>
-          </div>
-          <div class="content_bottom">
-            <div class="heading">
-              <h3>Feature Products</h3>
-            </div>
-          </div>
-          <div class="section group">
-            <div class="grid_1_of_5 images_1_of_5" v-for="(item, index) in hotList" :key="index">
-              <router-link :to=item.path><img :src=item.img alt="" /></router-link>
-              <h2><router-link :to=item.path>{{ item.title }}</router-link></h2>
-              <div class="price-details">
-                <div class="price-number">
-                  <p><span class="rupees">${{ item.price }}</span></p>
-                </div>
-                <div class="add-cart">
-                  <h4><a href="preview.html">Add to Cart</a></h4>
-                </div>
-                <div class="clear"></div>
-              </div>
-            </div>
-          </div>
+          <content-top :list="newList" :title="newTitle" />
+          <content-top :list="hotList" :title="hotTitle" />
+<!--          <div class="content_top">-->
+<!--            <div class="heading">-->
+<!--              <h3>New Products</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="section group">-->
+<!--            <div class="grid_1_of_5 images_1_of_5" v-for="(item, index) in newList" :key="index">-->
+<!--              <router-link :to=item.path><img :src=item.img alt="" /></router-link>-->
+<!--              <h2><router-link :to=item.path>{{ item.title }}</router-link></h2>-->
+<!--              <div class="price-details">-->
+<!--                <div class="price-number">-->
+<!--                  <p><span class="rupees">${{ item.price }}</span></p>-->
+<!--                </div>-->
+<!--                <div class="add-cart">-->
+<!--                  <h4><a href="preview.html">Add to Cart</a></h4>-->
+<!--                </div>-->
+<!--                <div class="clear"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="content_bottom">-->
+<!--            <div class="heading">-->
+<!--              <h3>Feature Products</h3>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="section group">-->
+<!--            <div class="grid_1_of_5 images_1_of_5" v-for="(item, index) in hotList" :key="index">-->
+<!--              <router-link :to=item.path><img :src=item.img alt="" /></router-link>-->
+<!--              <h2><router-link :to=item.path>{{ item.title }}</router-link></h2>-->
+<!--              <div class="price-details">-->
+<!--                <div class="price-number">-->
+<!--                  <p><span class="rupees">${{ item.price }}</span></p>-->
+<!--                </div>-->
+<!--                <div class="add-cart">-->
+<!--                  <h4><a href="preview.html">Add to Cart</a></h4>-->
+<!--                </div>-->
+<!--                <div class="clear"></div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
     </div>
@@ -89,6 +91,7 @@
 // import HelloWorld from '@/components/HelloWorld.vue';
 import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
+import ContentTop from '@/components/content-list.vue';
 
 export default {
   name: 'home',
@@ -96,12 +99,14 @@ export default {
     // HelloWorld,
     Header,
     Footer,
+    ContentTop,
   },
   mounted() {
     $('#slider').nivoSlider();
   },
   data() {
     return {
+      newTitle: '最新',
       newList: [
         {
           img: './static/images/black-swan.jpg',
@@ -152,6 +157,7 @@ export default {
           path: '/preview',
         },
       ],
+      hotTitle: '最热',
       hotList: [
         {
           img: './static/images/bg1_02.jpg',
